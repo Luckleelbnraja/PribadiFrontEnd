@@ -1,0 +1,19 @@
+{
+  "name": "project-cra",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "exercise12",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luckleelbnraja/front-end-hirarki.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Luckleelbnraja/front-end-hirarki/issues"
+  },
+  "homepage": "https://github.com/Luckleelbnraja/front-end-hirarki#readme"
+}
