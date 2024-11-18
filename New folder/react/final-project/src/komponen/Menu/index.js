@@ -20,13 +20,13 @@ const Menu = () => {
           </div>
           <div className="menu-item">
             <img src="/makanan3.png" alt="Makanan 3" />
-            <h3>Makanan Spesial 2</h3>
+            <h3>Makanan Spesial 3</h3>
             <p>Spaghetti Bolognese</p>
             <p>Rp 90.000</p>
           </div>
           <div className="menu-item">
-            <img src="/makanan3.png" alt="Makanan 3" />
-            <h3>Makanan Spesial 2</h3>
+            <img src="/makanan4.png" alt="Makanan 4" />
+            <h3>Makanan Spesial 4</h3>
             <p>The Royal Feast</p>
             <p>Rp 100.000</p>
           </div>
