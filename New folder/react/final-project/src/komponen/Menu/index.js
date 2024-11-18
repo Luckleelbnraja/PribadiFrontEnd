@@ -21,8 +21,14 @@ const Menu = () => {
           <div className="menu-item">
             <img src="/makanan3.png" alt="Makanan 3" />
             <h3>Makanan Spesial 2</h3>
-            <p>Quick & Easy Spaghetti Bolognese</p>
+            <p>Spaghetti Bolognese</p>
             <p>Rp 90.000</p>
+          </div>
+          <div className="menu-item">
+            <img src="/makanan3.png" alt="Makanan 3" />
+            <h3>Makanan Spesial 2</h3>
+            <p>The Royal Feast</p>
+            <p>Rp 100.000</p>
           </div>
         </div>
       </section>
