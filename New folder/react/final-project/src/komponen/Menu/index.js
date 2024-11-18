@@ -30,6 +30,12 @@ const Menu = () => {
             <p>The Royal Feast</p>
             <p>Rp 100.000</p>
           </div>
+          <div className="menu-item">
+            <img src="/makanan5.png" alt="Makanan 5" />
+            <h3>Makanan Spesial 5</h3>
+            <p>Filet Mignon Royale</p>
+            <p>Rp 200.000</p>
+          </div>
         </div>
       </section>
     </div>
