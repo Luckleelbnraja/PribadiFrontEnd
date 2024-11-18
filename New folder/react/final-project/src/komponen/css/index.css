@@ -1,0 +1,345 @@
+/* Reset default styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar Styles */
+header {
+  background-color: #007bff;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffeb3b;
+}
+
+/* Desktop vs Mobile */
+.desktop-nav {
+  display: flex;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Hero Section */
+.hero {
+  background: url("../background.png") no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeIn 1.5s ease-out forwards 0.5s;
+}
+
+.reservasi-section {
+  background-image: url("../meja.png"); /* Ganti dengan path gambar Anda */
+  background-size: cover; /* Agar gambar menyesuaikan ukuran kontainer */
+  background-position: center; /* Pusatkan gambar */
+  background-repeat: no-repeat; /* Hindari pengulangan gambar */
+  padding: 3rem; /* Padding agar konten tidak menempel di tepi */
+  color: white; /* Teks agar tetap terlihat dengan warna putih */
+  position: relative; /* Agar overlay dapat ditambahkan di atas gambar */
+}
+
+/* Overlay untuk meningkatkan kontras teks dengan gambar */
+.reservasi-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Efek gelap dengan transparansi */
+  z-index: -1; /* Agar overlay tidak menutupi konten */
+}
+
+.reservasi-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Menambahkan bayangan teks agar lebih jelas */
+}
+
+.reservasi-description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Menambahkan bayangan teks agar lebih jelas */
+}
+
+.reservasi-form {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Background semi-transparan untuk form */
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  font-size: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.reservasi-button {
+  padding: 1rem 2rem;
+  background-color: #ff6347; /* Warna tombol */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.reservasi-button:hover {
+  background-color: #e5533e; /* Warna tombol saat hover */
+}
+
+/* Menu Section */
+#menu {
+  padding: 3rem 0;
+  background-color: #e3f2fd;
+  text-align: center;
+}
+
+#menu h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.menu-items {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  width: 30%;
+  margin: 15px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.menu-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Reservasi Section */
+#reservasi {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #ff6347, #ffab73);
+  background-size: 200% 200%;
+  animation: bgAnimation 6s infinite;
+  color: white;
+  text-align: center;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+}
+
+label {
+  font-size: 1rem;
+  color: #fff;
+}
+
+input,
+button {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+}
+
+input {
+  width: 100%;
+}
+
+button {
+  background-color: #fff;
+  color: #ff6347;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e5533e;
+  color: #fff;
+}
+
+/* Promo Section */
+#promo {
+  padding: 3rem 0;
+  background-color: #e8f5e9;
+  text-align: center;
+}
+
+#promo h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Ulasan Section */
+#ulasan {
+  padding: 3rem 0;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.reviews {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.review {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 250px;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideIn 1s ease-out forwards;
+}
+
+.review p {
+  font-style: italic;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes bgAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
