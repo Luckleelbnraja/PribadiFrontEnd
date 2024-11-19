@@ -16,19 +16,25 @@ const Menu = () => {
       name: "Salad Segar",
       category: "Appetizer",
       price: 35000,
-      image: "../salad.png",
+      image: "/images/salad.png",
     },
     {
       name: "Steak Wagyu",
       category: "Main Course",
       price: 250000,
-      image: "../steak.png",
+      image: "/images/steak.png",
     },
     {
       name: "Tiramisu",
       category: "Dessert",
       price: 45000,
-      image: "../tiramisu.png",
+      image: "/images/tiramisu.png",
+    },
+    {
+      name: "Teh Hijau",
+      category: "Minuman",
+      price: 20000,
+      image: "/images/green-tea.png",
     },
   ];
 
@@ -38,65 +44,28 @@ const Menu = () => {
       : menuItems.filter((item) => item.category === activeCategory);
 
   return (
-<<<<<<< HEAD
-    <section id="menu" className="py-16 bg-white">
+    <section id="menu" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Menu Restoran</h2>
+        <h2 className="text-3xl font-bold text-center mb-8">Menu Kami</h2>
 
-        {/* Category Filter */}
-        <div className="flex justify-center mb-8 space-x-4">
-          {menuCategories.map((category) => (
+        {/* Kategori Menu */}
+        <div className="flex justify-center space-x-4 mb-8">
+          {menuCategories.map((category, index) => (
             <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full transition-colors ${
+              key={index}
+              className={`py-2 px-4 rounded-lg ${
                 activeCategory === category
                   ? "bg-primary text-white"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  : "bg-gray-200 text-gray-600"
               }`}
+              onClick={() => setActiveCategory(category)}
             >
               {category}
             </button>
           ))}
-=======
-    <div>
-      <section id="menu">
-        <h2>Menu Kami</h2>
-        <div className="menu-items">
-          <div className="menu-item">
-            <img src="/makanan1.png" alt="Makanan 1" />
-            <h3>Makanan Spesial 1</h3>
-            <p>Deskripsi singkat tentang makanan.</p>
-            <p>Rp 50.000</p>
-          </div>
-          <div className="menu-item">
-            <img src="/makanan2.png" alt="Makanan 2" />
-            <h3>Makanan Spesial 2</h3>
-            <p>Deskripsi singkat tentang makanan.</p>
-            <p>Rp 65.000</p>
-          </div>
-          <div className="menu-item">
-            <img src="/makanan3.png" alt="Makanan 3" />
-            <h3>Makanan Spesial 3</h3>
-            <p>Spaghetti Bolognese</p>
-            <p>Rp 90.000</p>
-          </div>
-          <div className="menu-item">
-            <img src="/makanan4.png" alt="Makanan 4" />
-            <h3>Makanan Spesial 4</h3>
-            <p>The Royal Feast</p>
-            <p>Rp 100.000</p>
-          </div>
-          <div className="menu-item">
-            <img src="/makanan5.png" alt="Makanan 5" />
-            <h3>Makanan Spesial 4</h3>
-            <p>Filet Mignon Royale</p>
-            <p>Rp 200.000</p>
-          </div>
->>>>>>> 060780e85d6633b82c7a20169a3c330925d04956
         </div>
 
-        {/* Menu Grid */}
+        {/* Daftar Menu */}
         <div className="grid md:grid-cols-3 gap-6">
           {filteredItems.map((item, index) => (
             <div
