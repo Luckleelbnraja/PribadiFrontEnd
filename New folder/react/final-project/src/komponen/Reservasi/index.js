@@ -1,90 +1,156 @@
-import React from "react";
+import React, { useState } from "react";
+import { ref, push } from "firebase/database";
+import { database } from "../../firebase";
+import ClipLoader from "react-spinners/ClipLoader"; // Import spinner
 
 const Reservasi = () => {
+  const [reservationData, setReservationData] = useState({
+    name: "",
+    email: "",
+    date: "",
+    time: "",
+    guests: 1,
+  });
+
+  const [isLoading, setIsLoading] = useState(false); // State untuk loading spinner
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setIsLoading(true); // Tampilkan spinner
+    try {
+      const reservationsRef = ref(database, "reservations");
+      await push(reservationsRef, reservationData);
+
+      console.log("Reservation submitted successfully:", reservationData);
+
+      // Reset form setelah sukses
+      setReservationData({
+        name: "",
+        email: "",
+        date: "",
+        time: "",
+        guests: 1,
+      });
+
+      alert("Reservasi berhasil dikirim!");
+    } catch (error) {
+      console.error("Error submitting reservation:", error);
+      alert("Terjadi kesalahan saat mengirim reservasi.");
+    } finally {
+      setIsLoading(false); // Sembunyikan spinner
+    }
+  };
+
   return (
-    <div className="reservasi-container">
-      <section id="reservasi" className="reservasi-section">
-        <h2 className="reservasi-title">Reservasi Meja</h2>
-        <p className="reservasi-description">
-          Pesan meja Anda di restoran kami untuk pengalaman bersantap mewah.
-          Silakan isi formulir di bawah ini.
-        </p>
-        <form className="reservasi-form">
-          <div className="form-group">
-            <label htmlFor="nama" className="form-label">
-              Nama Lengkap
-            </label>
-            <input
-              type="text"
-              id="nama"
-              name="nama"
-              className="form-input"
-              placeholder="Masukkan nama lengkap"
-              required
-            />
-          </div>
+    <section id="reservasi" className="py-16 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-8">Reservasi Meja</h2>
 
-          <div className="form-group">
-            <label htmlFor="tanggal" className="form-label">
-              Tanggal Reservasi
-            </label>
-            <input
-              type="date"
-              id="tanggal"
-              name="tanggal"
-              className="form-input"
-              required
-            />
+        {isLoading ? (
+          <div className="flex justify-center items-center h-32">
+            <ClipLoader color="#3498db" size={50} />
           </div>
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md"
+          >
+            <div className="mb-4">
+              <label className="block mb-2">Nama Lengkap</label>
+              <input
+                type="text"
+                required
+                value={reservationData.name}
+                onChange={(e) =>
+                  setReservationData({
+                    ...reservationData,
+                    name: e.target.value,
+                  })
+                }
+                className="w-full px-3 py-2 border rounded-md"
+                placeholder="Masukkan nama Anda"
+              />
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="waktu" className="form-label">
-              Waktu Reservasi
-            </label>
-            <input
-              type="time"
-              id="waktu"
-              name="waktu"
-              className="form-input"
-              required
-            />
-          </div>
+            <div className="mb-4">
+              <label className="block mb-2">Email</label>
+              <input
+                type="email"
+                required
+                value={reservationData.email}
+                onChange={(e) =>
+                  setReservationData({
+                    ...reservationData,
+                    email: e.target.value,
+                  })
+                }
+                className="w-full px-3 py-2 border rounded-md"
+                placeholder="Masukkan email Anda"
+              />
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="jumlah" className="form-label">
-              Jumlah Orang
-            </label>
-            <input
-              type="number"
-              id="jumlah"
-              name="jumlah"
-              className="form-input"
-              min="1"
-              placeholder="Masukkan jumlah orang"
-              required
-            />
-          </div>
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <label className="block mb-2">Tanggal</label>
+                <input
+                  type="date"
+                  required
+                  value={reservationData.date}
+                  onChange={(e) =>
+                    setReservationData({
+                      ...reservationData,
+                      date: e.target.value,
+                    })
+                  }
+                  className="w-full px-3 py-2 border rounded-md"
+                />
+              </div>
+              <div>
+                <label className="block mb-2">Waktu</label>
+                <input
+                  type="time"
+                  required
+                  value={reservationData.time}
+                  onChange={(e) =>
+                    setReservationData({
+                      ...reservationData,
+                      time: e.target.value,
+                    })
+                  }
+                  className="w-full px-3 py-2 border rounded-md"
+                />
+              </div>
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="form-input"
-              placeholder="Masukkan email Anda"
-              required
-            />
-          </div>
+            <div className="mb-4">
+              <label className="block mb-2">Jumlah Tamu</label>
+              <input
+                type="number"
+                min="1"
+                max="10"
+                required
+                value={reservationData.guests}
+                onChange={(e) =>
+                  setReservationData({
+                    ...reservationData,
+                    guests: e.target.value,
+                  })
+                }
+                className="w-full px-3 py-2 border rounded-md"
+              />
+            </div>
 
-          <button type="submit" className="reservasi-button">
-            Pesan Meja
-          </button>
-        </form>
-      </section>
-    </div>
+            <button
+              type="submit"
+              className="w-full bg-primary text-white py-3 rounded-md hover:bg-primary-dark transition-colors"
+            >
+              Konfirmasi Reservasi
+            </button>
+          </form>
+        )}
+      </div>
+    </section>
   );
 };
 
