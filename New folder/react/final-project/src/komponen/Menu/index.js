@@ -32,7 +32,7 @@ const Menu = () => {
           </div>
           <div className="menu-item">
             <img src="/makanan5.png" alt="Makanan 5" />
-            <h3>Makanan Spesial 5</h3>
+            <h3>Makanan Spesial 4</h3>
             <p>Filet Mignon Royale</p>
             <p>Rp 200.000</p>
           </div>
