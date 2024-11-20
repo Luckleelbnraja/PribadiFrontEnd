@@ -112,7 +112,7 @@ const Footer = () => {
             </h3>
             <div className="flex flex-col space-y-3 mt-4">
               <a
-                href="#"
+                href="https://www.instagram.com"
                 className="text-white hover:text-primary transition-colors duration-300 flex items-center space-x-2 group"
               >
                 <span className="w-5 h-5 bg-white/10 rounded-full p-1 group-hover:bg-white/20 transition-colors">

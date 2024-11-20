@@ -16,25 +16,25 @@ const Menu = () => {
       name: "Salad Segar",
       category: "Appetizer",
       price: 35000,
-      image: "/images/salad.png",
+      image: "../salad.png",
     },
     {
       name: "Steak Wagyu",
       category: "Main Course",
       price: 250000,
-      image: "/images/steak.png",
+      image: "../steak.png",
     },
     {
       name: "Tiramisu",
       category: "Dessert",
       price: 45000,
-      image: "/images/tiramisu.png",
+      image: "../tiramisu.png",
     },
     {
       name: "Teh Hijau",
       category: "Minuman",
       price: 20000,
-      image: "/images/green-tea.png",
+      image: "../greentea.png",
     },
   ];
 
